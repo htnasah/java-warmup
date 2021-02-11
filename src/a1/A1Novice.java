@@ -13,7 +13,7 @@ public class A1Novice {
 		for(int i = 0; i < num; i++){
 			String fName = scan.next();
 			String lName = scan.next();
-			names[i] =  fName.substring(0,1) + '.' + lName + ':';
+			names[i] =  fName.substring(0,1) + ". " + lName + ':';
 			int items = scan.nextInt();
 			totals[i] = 0.0;
 			for(int j = 0; j < items; j++) {

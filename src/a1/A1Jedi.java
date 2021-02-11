@@ -1,6 +1,7 @@
 package a1;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class A1Jedi {
 
@@ -23,19 +24,23 @@ public class A1Jedi {
 		for (int j = 0; j < numCust; j++) {
 			scan.next();
 			scan.next();
-			int custItems = scan.nextInt();
-			for (int k = 0; k < custItems; k++) {
+			ArrayList<String> custItems = new ArrayList<String>();
+			int custItem = scan.nextInt();
+			for (int k = 0; k < custItem; k++) {
 				int itemN = scan.nextInt();
 				String itemNa = scan.next();
 				for (int i = 0; i < count.length; i++) {
 					if (itemNa.equals(prod[i])) {
 						count[i] += itemN;
-						npc[i]++;
+						if (!(custItems.contains(itemNa))) {
+							npc[i]++;
+							custItems.add(itemNa);
+						}
+
 					}
 				}
 			}
 		}
-		scan.close();
 		for (int i = 0; i < prod.length; i++) {
 			if (npc[i] == 0) {
 				System.out.println("No customers bought " + prod[i]);
@@ -44,6 +49,7 @@ public class A1Jedi {
 
 			}
 		}
-
+		scan.close();
 	}
 }
+
